@@ -1,4 +1,13 @@
-<h2>Bill for {{ name }}</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <h2>Bill for {{ name }}</h2>
 <table border="1">
   <tr><th>Item</th><th>Qty</th><th>Amount</th></tr>
   {% for item, qty, amount in details %}
@@ -11,3 +20,6 @@
 </table>
 <h3>Total: ₹{{ total }}</h3>
 <a href="/dashboard">Go to Dashboard</a>
+
+</body>
+</html>
