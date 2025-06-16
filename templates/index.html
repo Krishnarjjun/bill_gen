@@ -1,0 +1,14 @@
+<h2>Customer Name:</h2>
+<form method="POST" action="/bill">
+  <input type="text" name="customer_name" required><br><br>
+
+  {% for item in menu %}
+    <div>
+      <input type="checkbox" name="items" value="{{ item.name }}">
+      {{ item.name }} - ₹{{ item.price }}
+      Qty: <input type="number" name="quantity" min="1" max="10">
+    </div>
+  {% endfor %}
+  <br>
+  <input type="submit" value="Generate Bill">
+</form>

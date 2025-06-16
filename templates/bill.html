@@ -1,0 +1,13 @@
+<h2>Bill for {{ name }}</h2>
+<table border="1">
+  <tr><th>Item</th><th>Qty</th><th>Amount</th></tr>
+  {% for item, qty, amount in details %}
+    <tr>
+      <td>{{ item }}</td>
+      <td>{{ qty }}</td>
+      <td>₹{{ amount }}</td>
+    </tr>
+  {% endfor %}
+</table>
+<h3>Total: ₹{{ total }}</h3>
+<a href="/dashboard">Go to Dashboard</a>

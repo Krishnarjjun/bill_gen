@@ -1,0 +1,28 @@
+<h2>Dashboard</h2>
+<p>Customers Today: {{ customer_count }}</p>
+
+<table border="1">
+  <tr>
+    <th>ID</th><th>Name</th><th>Item</th><th>Qty</th><th>Amount</th>
+    <th>Status</th><th>Payment</th><th>Actions</th>
+  </tr>
+  {% for order in orders %}
+    <tr>
+      <td>{{ order[0] }}</td>
+      <td>{{ order[1] }}</td>
+      <td>{{ order[2] }}</td>
+      <td>{{ order[3] }}</td>
+      <td>₹{{ order[4] }}</td>
+      <td>{{ order[5] }}</td>
+      <td>{{ order[6] }}</td>
+      <td>
+        {% if order[5] == 'Pending' %}
+          <a href="/update_status/{{ order[0] }}/status/Served">Mark Served</a>
+        {% endif %}
+        {% if order[6] == 'Unpaid' %}
+          <a href="/update_status/{{ order[0] }}/payment_status/Paid">Pay Now</a>
+        {% endif %}
+      </td>
+    </tr>
+  {% endfor %}
+</table>
